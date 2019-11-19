@@ -5,9 +5,9 @@ const sequelize = require('../config/sequelize-connection');
 const Sequelize = sequelize.Sequelize;
 
 //Deps de Associations
+const Session = require('./Session');
 const Project = require('./Project');
 const Task = require('./Task');
-const Session = require('./Session');
 
 //Definição do Sequelize Model
 const User = sequelize.define('user', {
@@ -15,7 +15,7 @@ const User = sequelize.define('user', {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true,
-        valodatr: {
+        validate: {
             notNull: {
                 msg: 'O email é obrigatório.'
             },
@@ -31,9 +31,9 @@ const User = sequelize.define('user', {
             notNull: {
                 msg: 'A senha é obrigatório. '
             },
-            len : {
+            len: {
                 args: [5, 10],
-                msg: 'A senha deve ter entre 5 e qo caracteres.'
+                msg: 'A senha deve ter entre 5 e 10 caracteres.'
             }
         }
     },
@@ -49,16 +49,28 @@ const User = sequelize.define('user', {
                 msg: 'O nome deve ter entre 5 e 120 caracteres.'
             }
         }
-    },
-    admin: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false
     }
 });
 
 //Associations
-User.hasMany(Project);
-User.hasMany(Task);
-User.hasMany(Session);
+User.hasOne(Session);
+
+Project.belongsTo(User, {
+    as: "ProjectOwner"
+});
+
+User.belongsToMany(Project, {
+    through: 'user_projects',
+    as: 'WorksOn'
+})
+
+Task.belongsTo(User, {
+    as: "TaskOwner"
+});
+
+User.belongsToMany(Task, {
+    through: 'user_tasks',
+    as: 'WorkingOn'
+})
 
 module.exports = User;

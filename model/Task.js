@@ -4,10 +4,6 @@ const sequelize = require('../config/sequelize-connection');
 //Biblioteca de Data types do Sequelize
 const Sequelize = sequelize.Sequelize;
 
-//Deps de Associations
-const User = require('./User');
-const Project = require('./Project');
-
 //Definição do Sequelize Model
 const Task = sequelize.define('task', {
     title: {
@@ -22,7 +18,7 @@ const Task = sequelize.define('task', {
     done_date: {
         type: Sequelize.DATE
     },
-    deadline:{
+    deadline: {
         type: Sequelize.DATE
     },
     task_status: {
@@ -30,9 +26,5 @@ const Task = sequelize.define('task', {
         values: ['not_started', 'started', 'done']
     }
 });
-
-//Associations
-Task.belongsTo(User);
-Task.belongsTo(Project);
 
 module.exports = Task;
