@@ -1,7 +1,7 @@
 //Façade para todos os Models em ./model
-exports.model = {
+module.exports = {
     User: require('./User'),
-    User: require('./Session'),
+    Session: require('./Session'),
     Project: require('./Project'),
     Task: require('./Task')
 };
