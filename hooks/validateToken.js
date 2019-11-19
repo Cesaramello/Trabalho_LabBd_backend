@@ -15,11 +15,11 @@ const validateToken = (request, response, next) => {
                 return next();
             })
             .catch(err => {
-                response.send(HttpStatus.UNAUTHORIZED, err);
+                response.send(HttpStatus.NETWORK_AUTHENTICATION_REQUIRED, err);
                 return next(false);
             })
     } else {
-        response.send(HttpStatus.UNAUTHORIZED, "Headers de autenticação não encontrados.");
+        response.send(HttpStatus.NETWORK_AUTHENTICATION_REQUIRED, "Headers de autenticação não encontrados.");
         return next(false);
     }
 };

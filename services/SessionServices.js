@@ -12,7 +12,6 @@ const {
 const SessionServices = {};
 
 SessionServices.authenticate = (login, password) => new Promise((resolve, reject) => {
-
     User.findOne({
             where: {
                 login: login,
@@ -47,7 +46,7 @@ SessionServices.authenticate = (login, password) => new Promise((resolve, reject
                             .then(session => {
                                 return resolve({
                                     user: user,
-                                    session: session
+                                    token: session.token
                                 })
                             })
                     });
@@ -85,7 +84,6 @@ SessionServices.validate = (token, userId) => new Promise((resolve, reject) => {
 });
 
 SessionServices.deactivate = (token, userId) => new Promise((resolve, reject) => {
-
     Session.findOne({
             where: {
                 token: token,
