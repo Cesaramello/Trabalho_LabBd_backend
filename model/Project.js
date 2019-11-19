@@ -12,11 +12,24 @@ const Project = sequelize.define('project', {
     name: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true
+        unique: {
+            args: true,
+            msg: 'Nome de projeto já em uso.'
+        },
+        validate: {
+            notNull: {
+                msg: 'O nome do projeto é obrigatório.'
+            }
+        }
     },
     desc: {
         type: Sequelize.TEXT,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notNull: {
+                msg: 'Descrição do projeto é obrigatória'
+            }
+        }
     }
 });
 

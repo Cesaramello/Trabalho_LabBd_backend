@@ -14,7 +14,10 @@ const User = sequelize.define('user', {
     login: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
+        unique: {
+            args: true,
+            msg: 'Este login já está em uso.'
+        },
         validate: {
             notNull: {
                 msg: 'O login é obrigatório.'
@@ -28,7 +31,10 @@ const User = sequelize.define('user', {
     email: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
+        unique: {
+            args: true,
+            msg: 'Já existe um usuário cadastrado para este e-mail.'
+        },
         validate: {
             notNull: {
                 msg: 'O email é obrigatório.'
