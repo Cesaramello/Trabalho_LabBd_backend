@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "create-schema": "node ./scripts/create-schema.js",
+    "insert-data": "node ./scripts/insert-sample-data.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Grupo Trabalho LabBD",
