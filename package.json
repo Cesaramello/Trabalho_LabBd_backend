@@ -4,6 +4,7 @@
   "description": "Simples gerenciador de tarefas demostrando a integração entre uma aplicação Web Service e um banco de dados relacional utilizando um framework ORM.",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "create-schema": "node ./scripts/create-schema.js",
     "insert-data": "node ./scripts/insert-sample-data.js",
     "test": "echo \"Error: no test specified\" && exit 1"
