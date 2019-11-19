@@ -11,6 +11,20 @@ const Task = require('./Task');
 
 //Definição do Sequelize Model
 const User = sequelize.define('user', {
+    login: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+            notNull: {
+                msg: 'O login é obrigatório.'
+            },
+            len: {
+                args: [4, 10],
+                msg: 'O login deve ter entre 4 e 10 caracteres.'
+            }
+        }
+    },
     email: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -55,8 +69,8 @@ const User = sequelize.define('user', {
 //Associations
 User.hasOne(Session);
 
-Project.belongsTo(User, {
-    as: "ProjectOwner"
+User.hasOne(Project, {
+    as: 'ProjectOwner'
 });
 
 User.belongsToMany(Project, {
