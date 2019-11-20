@@ -13,8 +13,11 @@ Simples gerenciador de tarefas demostrando a integração entre um Web Service e
  4. Enzo Moraes Pereira - [@enzomoraes](https://github.com/enzomoraes)
 
 ## Tecnologias Utilizadas
- 1. SGBD: [PostgreSQL](https://www.postgresql.org/)
+ 1. SGBD: [SQLite](https://www.sqlite.org/index.html)
  2. Backend: [Node.js](https://nodejs.org/en/)
  3. Framework ORM: [Sequelize](http://sequelizejs.com)
  4. Framework RESTful Web Service: [Restify](http://restify.com/)
  5. Frontend: [Vue.js](https://vuejs.org/)
+ 6. Diagrama de Classes: [Astah](http://astah.net/download)
+ 7. Diagrama ER: [DataGrip JetBrains](https://www.jetbrains.com/datagrip/)
+
