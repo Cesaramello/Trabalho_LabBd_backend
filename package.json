@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "create-schema": "node ./scripts/create-schema.js",
-    "insert-data": "node ./scripts/insert-sample-data.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "insert-data": "node ./scripts/insert-sample-data.js"
   },
   "author": "Grupo Trabalho LabBD",
   "license": "ISC",
