@@ -12,6 +12,7 @@
   "author": "Grupo Trabalho LabBD",
   "license": "ISC",
   "dependencies": {
+    "moment": "^2.24.0",
     "sequelize": "^5.21.1",
     "sqlite3": "^4.1.0"
   },

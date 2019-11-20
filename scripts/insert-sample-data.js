@@ -2,13 +2,15 @@ const model = require('../model');
 
 const {
     User,
-    Project
+    Project,
+    Task
 } = model;
 
 const sampleData = require('./sample-data');
 const {
     users,
-    projects
+    projects,
+    tasks
 } = sampleData;
 
 
@@ -28,6 +30,31 @@ projects.map(project => {
             console.log(JSON.stringify(createdProject, null, 4));
         })
         .catch(err => {
-            console.error('Erro ao criar o usuário', project, err);
+            console.error('Erro ao criar o projeto', project, err);
+        })
+});
+
+insertUsersinProjects = async () => {
+
+    const users = await User.findAll();
+    const projects = await Project.findAll();
+
+
+    users.map(user => {
+        projects.map(async project => {
+            await user.addWorksOn(project);
+        });
+    });
+};
+
+insertUsersinProjects();
+
+tasks.map(task => {
+    Task.create(task)
+        .then(createdTask => {
+            console.log(JSON.stringify(createdTask, null, 4));
+        })
+        .catch(err => {
+            console.error('Erro ao criar a tarefa', task, err);
         })
 });
