@@ -41,7 +41,6 @@ ProjectServices.create = (project) => new Promise((resolve, reject) => {
         });
 });
 
-
 ProjectServices.delete = (project) => new Promise((resolve, reject) => {
     ProjectServices.get(project)
         .then((projectFound) => {
