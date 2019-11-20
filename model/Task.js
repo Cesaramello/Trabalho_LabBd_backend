@@ -46,12 +46,13 @@ const Task = sequelize.define('task', {
 //Hooks (Triggers)
 Task.addHook('afterUpdate', (task, options) => {
     const oldTask = task._previousDataValues;
-    if(oldTask.task_status == 'not_started'){
 
-        if(task.task_status == 'started'){
-            task.task_status = 
-        }
+    if (oldTask.task_status == 'not_started' && task.task_status == 'started') {
+        task.start_date = moment().toDate();
+    }
 
+    if (oldTask.task_status == 'started' && task.task_status == 'done') {
+        task.done_date = moment().toDate();
     }
 });
 
