@@ -4,6 +4,9 @@ const sequelize = require('../config/sequelize-connection');
 //Biblioteca de Data types do Sequelize
 const Sequelize = sequelize.Sequelize;
 
+//Tratar Datas
+const moment = require('moment');
+
 //Definição do Sequelize Model
 const Task = sequelize.define('task', {
     title: {
@@ -36,6 +39,19 @@ const Task = sequelize.define('task', {
     task_status: {
         type: Sequelize.ENUM,
         values: ['not_started', 'started', 'done']
+    }
+});
+
+
+//Hooks (Triggers)
+Task.addHook('afterUpdate', (task, options) => {
+    const oldTask = task._previousDataValues;
+    if(oldTask.task_status == 'not_started'){
+
+        if(task.task_status == 'started'){
+            task.task_status = 
+        }
+
     }
 });
 
