@@ -51,3 +51,61 @@ server.get(resourceName + '/:taskId', validateToken, (request, response, next) =
     next();
 });
 
+server.post(resourceName, validateToken, (request, response, next) => {
+
+    const userId = request.header('userId');
+
+    const {
+        taskTitle,
+        taskDesc,
+        taskDeadline,
+        taskProjectId
+    } = request.params;
+
+    const task = {
+        title: taskTitle || null,
+        desc: taskDesc || null,
+        deadline: taskDeadline || null,
+        projectId: taskProjectId || null,
+        task_status: 'not_started',
+        TaskOwnerId: userId
+    }
+
+    services.create(task)
+        .then(createdTask => {
+            console.log(createdTask);
+            response.send(HttpStatus.OK, createdTask);
+        })
+        .catch(err => {
+            console.error(err);
+            response.send(HttpStatus.UNPROCESSABLE_ENTITY, err);
+        })
+
+    next();
+});
+
+server.del(resourceName + '/:taskId', validateToken, (request, response, next) => {
+
+    const userId = request.header('userId');
+
+    const {
+        taskId,
+    } = request.params;
+
+    const task = {
+        id: taskId,
+        TaskOwnerId: userId
+    }
+
+    services.delete(task)
+        .then(deletedTask => {
+            console.log(deletedTask);
+            response.send(HttpStatus.OK, deletedTask);
+        })
+        .catch(err => {
+            console.error(err);
+            response.send(HttpStatus.UNPROCESSABLE_ENTITY, err);
+        })
+
+    next();
+});

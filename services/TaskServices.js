@@ -40,4 +40,19 @@ TaskServices.create = (task) => new Promise((resolve, reject) => {
         });
 });
 
+TaskServices.delete = (task) => new Promise((resolve, reject) => {
+    TaskServices.get(task)
+        .then((taskFound) => {
+            if (taskFound.TaskOwnerId == task.TaskOwnerId) {
+                taskFound.destroy()
+                    .then((removedTask) => resolve(removedTask));
+            } else {
+                reject("Você não possui permissão para excluir esta tarefa.");
+            }
+        })
+        .catch(err => {
+            reject(err);
+        });
+});
+
 module.exports = TaskServices;

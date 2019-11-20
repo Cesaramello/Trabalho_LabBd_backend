@@ -71,7 +71,25 @@ const tasks = [{
         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at lorem ut leo volutpat tincidunt non non tortor. Nulla a imperdiet urna. Integer ac lectus urna. Phasellus varius eget massa et viverra.",
         deadline: moment("09-12-2019 22:30", "DD-MM-YYYY HH:mm").toDate(),
         task_status: 'not_started',
-        projectId: 2, //Frontend
+        projectId: 3, //Frontend
+        TaskOwnerId: 2 //Cesar
+    },
+    {
+        id: 3,
+        title: "Insert de dados no banco",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at lorem ut leo volutpat tincidunt non non tortor. Nulla a imperdiet urna. Integer ac lectus urna. Phasellus varius eget massa et viverra.",
+        deadline: moment("09-12-2019 22:32", "DD-MM-YYYY HH:mm").toDate(),
+        task_status: 'not_started',
+        projectId: 3, //Banco de dados
+        TaskOwnerId: 1 //Bianca
+    },
+    {
+        id: 4,
+        title: "Criação de consultas de SQL",
+        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at lorem ut leo volutpat tincidunt non non tortor. Nulla a imperdiet urna. Integer ac lectus urna. Phasellus varius eget massa et viverra.",
+        deadline: moment("09-12-2019 22:31", "DD-MM-YYYY HH:mm").toDate(),
+        task_status: 'not_started',
+        projectId: 3, //Banco de dados
         TaskOwnerId: 2 //Cesar
     }
 ];

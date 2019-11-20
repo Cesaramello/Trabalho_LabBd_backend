@@ -7,10 +7,22 @@ const Sequelize = sequelize.Sequelize;
 //Definição do Sequelize Model
 const Task = sequelize.define('task', {
     title: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+        validate: {
+            notNull: {
+                msg: 'O título da tarefa é obrigatório.'
+            }
+        }
     },
     desc: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
+        allowNull: false,
+        validate: {
+            notNull: {
+                msg: 'A descrição da tarefa é obrigatório.'
+            }
+        }
     },
     start_date: {
         type: Sequelize.DATE
