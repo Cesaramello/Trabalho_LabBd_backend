@@ -76,7 +76,10 @@ const User = sequelize.define('user', {
 User.hasOne(Session);
 
 User.hasOne(Project, {
-    as: 'ProjectOwner'
+    as: 'ProjectOwner',
+    foreignKey: {
+        allowNull: false
+    }
 });
 
 User.belongsToMany(Project, {
@@ -85,12 +88,24 @@ User.belongsToMany(Project, {
 })
 
 Task.belongsTo(User, {
-    as: "TaskOwner"
+    as: "TaskOwner",
+    foreignKey: {
+        allowNull: false
+    }
+
 });
 
 User.belongsToMany(Task, {
     through: 'user_tasks',
     as: 'WorkingOn'
 })
+
+//Hooks (Triggers)
+Project.addHook('afterCreate', (project, options) => {
+    User.findByPk(project.ProjectOwnerId)
+        .then(user => {
+            user.addWorksOn(project);
+        });
+});
 
 module.exports = User;

@@ -5,6 +5,7 @@ const sequelize = require('../config/sequelize-connection');
 const Sequelize = sequelize.Sequelize;
 
 //Deps de Associations
+const User = require('./User');
 const Task = require('./Task');
 
 //Definição do Sequelize Model

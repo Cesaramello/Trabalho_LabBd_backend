@@ -34,20 +34,20 @@ projects.map(project => {
         })
 });
 
-insertUsersinProjects = async () => {
+// insertUsersinProjects = async () => {
 
-    const users = await User.findAll();
-    const projects = await Project.findAll();
+//     const users = await User.findAll();
+//     const projects = await Project.findAll();
 
 
-    users.map(user => {
-        projects.map(async project => {
-            await user.addWorksOn(project);
-        });
-    });
-};
+//     users.map(user => {
+//         projects.map(async project => {
+//             await user.addWorksOn(project);
+//         });
+//     });
+// };
 
-insertUsersinProjects();
+// insertUsersinProjects();
 
 tasks.map(task => {
     Task.create(task)
