@@ -34,25 +34,25 @@ const projects = [{
         id: 1,
         name: 'Backend',
         desc: 'Desenvolvimento do WebService utilizando Node.js e Restify.',
-        ProjectOwnerId: 3 //elmo
+        projectOwnerId: 3 //elmo
     },
     {
         id: 2,
         name: 'Frontend',
         desc: 'Desenvolvimento da UI utilizando Vue.js.',
-        ProjectOwnerId: 1 //bianca
+        projectOwnerId: 1 //bianca
     },
     {
         id: 3,
         name: 'Banco de Dados',
         desc: 'Desenvolvimento do DB utizando SqLite e Sequelize',
-        ProjectOwnerId: 2 //cesar
+        projectOwnerId: 2 //cesar
     },
     {
         id: 4,
         name: 'Documentação',
         desc: 'Processo de documentação e tecnologias utilizadas nos outros projetos.',
-        ProjectOwnerId: 4 //enzo
+        projectOwnerId: 4 //enzo
     }
 ];
 
@@ -63,7 +63,7 @@ const tasks = [{
         deadline: moment("09-12-2019 22:30", "DD-MM-YYYY HH:mm").toDate(),
         task_status: 'not_started',
         projectId: 1, //Backend
-        TaskOwnerId: 3 //Elmo
+        taskOwnerId: 3 //Elmo
     },
     {
         id: 2,
@@ -72,7 +72,7 @@ const tasks = [{
         deadline: moment("09-12-2019 22:30", "DD-MM-YYYY HH:mm").toDate(),
         task_status: 'not_started',
         projectId: 3, //Frontend
-        TaskOwnerId: 2 //Cesar
+        taskOwnerId: 2 //Cesar
     },
     {
         id: 3,
@@ -81,7 +81,7 @@ const tasks = [{
         deadline: moment("09-12-2019 22:32", "DD-MM-YYYY HH:mm").toDate(),
         task_status: 'not_started',
         projectId: 3, //Banco de dados
-        TaskOwnerId: 1 //Bianca
+        taskOwnerId: 1 //Bianca
     },
     {
         id: 4,
@@ -90,7 +90,7 @@ const tasks = [{
         deadline: moment("09-12-2019 22:31", "DD-MM-YYYY HH:mm").toDate(),
         task_status: 'not_started',
         projectId: 3, //Banco de dados
-        TaskOwnerId: 2 //Cesar
+        taskOwnerId: 2 //Cesar
     }
 ];
 

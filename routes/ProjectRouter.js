@@ -63,7 +63,7 @@ server.post(resourceName, validateToken, (request, response, next) => {
     const project = {
         name: projectName || null,
         desc: projectDesc || null,
-        ProjectOwnerId: userId
+        projectOwnerId: userId
     }
 
     services.create(project)
@@ -89,7 +89,7 @@ server.del(resourceName + '/:projectId', validateToken, (request, response, next
 
     const project = {
         id: projectId,
-        ProjectOwnerId: userId
+        projectOwnerId: userId
     }
 
     services.delete(project)

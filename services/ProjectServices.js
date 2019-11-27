@@ -44,7 +44,7 @@ ProjectServices.create = (project) => new Promise((resolve, reject) => {
 ProjectServices.delete = (project) => new Promise((resolve, reject) => {
     ProjectServices.get(project)
         .then((projectFound) => {
-            if (projectFound.ProjectOwnerId == project.ProjectOwnerId) {
+            if (projectFound.projectOwnerId == project.projectOwnerId) {
                 projectFound.destroy()
                     .then((removedProject) => resolve(removedProject));
             } else {

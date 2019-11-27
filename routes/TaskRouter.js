@@ -68,7 +68,7 @@ server.post(resourceName, validateToken, (request, response, next) => {
         deadline: taskDeadline || null,
         projectId: taskProjectId || null,
         task_status: 'not_started',
-        TaskOwnerId: userId
+        taskOwnerId: userId
     }
 
     services.create(task)
@@ -94,7 +94,7 @@ server.del(resourceName + '/:taskId', validateToken, (request, response, next) =
 
     const task = {
         id: taskId,
-        TaskOwnerId: userId
+        taskOwnerId: userId
     }
 
     services.delete(task)

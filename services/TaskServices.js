@@ -43,7 +43,7 @@ TaskServices.create = (task) => new Promise((resolve, reject) => {
 TaskServices.delete = (task) => new Promise((resolve, reject) => {
     TaskServices.get(task)
         .then((taskFound) => {
-            if (taskFound.TaskOwnerId == task.TaskOwnerId) {
+            if (taskFound.taskOwnerId == task.taskOwnerId) {
                 taskFound.destroy()
                     .then((removedTask) => resolve(removedTask));
             } else {
